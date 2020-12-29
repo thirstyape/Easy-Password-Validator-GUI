@@ -39,8 +39,12 @@ namespace Easy_Password_Validator_GUI
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.radioButtonUppercaseN = new System.Windows.Forms.RadioButton();
+            this.radioButtonUppercaseY = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.radioButtonPunctuationN = new System.Windows.Forms.RadioButton();
+            this.radioButtonPunctuationY = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.radioButtonLowercaseN = new System.Windows.Forms.RadioButton();
@@ -60,10 +64,8 @@ namespace Easy_Password_Validator_GUI
             this.label5 = new System.Windows.Forms.Label();
             this.numericUpDownLength = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.radioButtonUppercaseY = new System.Windows.Forms.RadioButton();
-            this.radioButtonUppercaseN = new System.Windows.Forms.RadioButton();
-            this.radioButtonPunctuationY = new System.Windows.Forms.RadioButton();
-            this.radioButtonPunctuationN = new System.Windows.Forms.RadioButton();
+            this.label13 = new System.Windows.Forms.Label();
+            this.numericUpDownEntropy = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -75,6 +77,7 @@ namespace Easy_Password_Validator_GUI
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepeat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUnique)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLength)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEntropy)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -159,6 +162,8 @@ namespace Easy_Password_Validator_GUI
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.numericUpDownEntropy);
+            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.panel3);
             this.groupBox2.Controls.Add(this.panel4);
             this.groupBox2.Controls.Add(this.panel2);
@@ -190,6 +195,30 @@ namespace Easy_Password_Validator_GUI
             this.panel3.Size = new System.Drawing.Size(363, 31);
             this.panel3.TabIndex = 12;
             // 
+            // radioButtonUppercaseN
+            // 
+            this.radioButtonUppercaseN.AutoSize = true;
+            this.radioButtonUppercaseN.Location = new System.Drawing.Point(322, 7);
+            this.radioButtonUppercaseN.Name = "radioButtonUppercaseN";
+            this.radioButtonUppercaseN.Size = new System.Drawing.Size(41, 19);
+            this.radioButtonUppercaseN.TabIndex = 2;
+            this.radioButtonUppercaseN.TabStop = true;
+            this.radioButtonUppercaseN.Text = "No";
+            this.radioButtonUppercaseN.UseVisualStyleBackColor = true;
+            this.radioButtonUppercaseN.CheckedChanged += new System.EventHandler(this.RadioButtonUppercaseN_CheckedChanged);
+            // 
+            // radioButtonUppercaseY
+            // 
+            this.radioButtonUppercaseY.AutoSize = true;
+            this.radioButtonUppercaseY.Location = new System.Drawing.Point(165, 7);
+            this.radioButtonUppercaseY.Name = "radioButtonUppercaseY";
+            this.radioButtonUppercaseY.Size = new System.Drawing.Size(42, 19);
+            this.radioButtonUppercaseY.TabIndex = 1;
+            this.radioButtonUppercaseY.TabStop = true;
+            this.radioButtonUppercaseY.Text = "Yes";
+            this.radioButtonUppercaseY.UseVisualStyleBackColor = true;
+            this.radioButtonUppercaseY.CheckedChanged += new System.EventHandler(this.RadioButtonUppercaseY_CheckedChanged);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -208,6 +237,30 @@ namespace Easy_Password_Validator_GUI
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(363, 31);
             this.panel4.TabIndex = 12;
+            // 
+            // radioButtonPunctuationN
+            // 
+            this.radioButtonPunctuationN.AutoSize = true;
+            this.radioButtonPunctuationN.Location = new System.Drawing.Point(322, 6);
+            this.radioButtonPunctuationN.Name = "radioButtonPunctuationN";
+            this.radioButtonPunctuationN.Size = new System.Drawing.Size(41, 19);
+            this.radioButtonPunctuationN.TabIndex = 2;
+            this.radioButtonPunctuationN.TabStop = true;
+            this.radioButtonPunctuationN.Text = "No";
+            this.radioButtonPunctuationN.UseVisualStyleBackColor = true;
+            this.radioButtonPunctuationN.CheckedChanged += new System.EventHandler(this.RadioButtonPunctuationN_CheckedChanged);
+            // 
+            // radioButtonPunctuationY
+            // 
+            this.radioButtonPunctuationY.AutoSize = true;
+            this.radioButtonPunctuationY.Location = new System.Drawing.Point(165, 6);
+            this.radioButtonPunctuationY.Name = "radioButtonPunctuationY";
+            this.radioButtonPunctuationY.Size = new System.Drawing.Size(42, 19);
+            this.radioButtonPunctuationY.TabIndex = 1;
+            this.radioButtonPunctuationY.TabStop = true;
+            this.radioButtonPunctuationY.Text = "Yes";
+            this.radioButtonPunctuationY.UseVisualStyleBackColor = true;
+            this.radioButtonPunctuationY.CheckedChanged += new System.EventHandler(this.RadioButtonPunctuationY_CheckedChanged);
             // 
             // label12
             // 
@@ -454,53 +507,33 @@ namespace Easy_Password_Validator_GUI
             this.label4.TabIndex = 0;
             this.label4.Text = "Min &Length";
             // 
-            // radioButtonUppercaseY
+            // label13
             // 
-            this.radioButtonUppercaseY.AutoSize = true;
-            this.radioButtonUppercaseY.Location = new System.Drawing.Point(165, 7);
-            this.radioButtonUppercaseY.Name = "radioButtonUppercaseY";
-            this.radioButtonUppercaseY.Size = new System.Drawing.Size(42, 19);
-            this.radioButtonUppercaseY.TabIndex = 1;
-            this.radioButtonUppercaseY.TabStop = true;
-            this.radioButtonUppercaseY.Text = "Yes";
-            this.radioButtonUppercaseY.UseVisualStyleBackColor = true;
-            this.radioButtonUppercaseY.CheckedChanged += new System.EventHandler(this.RadioButtonUppercaseY_CheckedChanged);
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 352);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(72, 15);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Min Entropy";
             // 
-            // radioButtonUppercaseN
+            // numericUpDownEntropy
             // 
-            this.radioButtonUppercaseN.AutoSize = true;
-            this.radioButtonUppercaseN.Location = new System.Drawing.Point(322, 7);
-            this.radioButtonUppercaseN.Name = "radioButtonUppercaseN";
-            this.radioButtonUppercaseN.Size = new System.Drawing.Size(41, 19);
-            this.radioButtonUppercaseN.TabIndex = 2;
-            this.radioButtonUppercaseN.TabStop = true;
-            this.radioButtonUppercaseN.Text = "No";
-            this.radioButtonUppercaseN.UseVisualStyleBackColor = true;
-            this.radioButtonUppercaseN.CheckedChanged += new System.EventHandler(this.RadioButtonUppercaseN_CheckedChanged);
-            // 
-            // radioButtonPunctuationY
-            // 
-            this.radioButtonPunctuationY.AutoSize = true;
-            this.radioButtonPunctuationY.Location = new System.Drawing.Point(165, 6);
-            this.radioButtonPunctuationY.Name = "radioButtonPunctuationY";
-            this.radioButtonPunctuationY.Size = new System.Drawing.Size(42, 19);
-            this.radioButtonPunctuationY.TabIndex = 1;
-            this.radioButtonPunctuationY.TabStop = true;
-            this.radioButtonPunctuationY.Text = "Yes";
-            this.radioButtonPunctuationY.UseVisualStyleBackColor = true;
-            this.radioButtonPunctuationY.CheckedChanged += new System.EventHandler(this.RadioButtonPunctuationY_CheckedChanged);
-            // 
-            // radioButtonPunctuationN
-            // 
-            this.radioButtonPunctuationN.AutoSize = true;
-            this.radioButtonPunctuationN.Location = new System.Drawing.Point(322, 6);
-            this.radioButtonPunctuationN.Name = "radioButtonPunctuationN";
-            this.radioButtonPunctuationN.Size = new System.Drawing.Size(41, 19);
-            this.radioButtonPunctuationN.TabIndex = 2;
-            this.radioButtonPunctuationN.TabStop = true;
-            this.radioButtonPunctuationN.Text = "No";
-            this.radioButtonPunctuationN.UseVisualStyleBackColor = true;
-            this.radioButtonPunctuationN.CheckedChanged += new System.EventHandler(this.RadioButtonPunctuationN_CheckedChanged);
+            this.numericUpDownEntropy.DecimalPlaces = 1;
+            this.numericUpDownEntropy.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.numericUpDownEntropy.Location = new System.Drawing.Point(171, 350);
+            this.numericUpDownEntropy.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownEntropy.Name = "numericUpDownEntropy";
+            this.numericUpDownEntropy.Size = new System.Drawing.Size(198, 23);
+            this.numericUpDownEntropy.TabIndex = 14;
+            this.numericUpDownEntropy.ValueChanged += new System.EventHandler(this.NumericUpDownEntropy_ValueChanged);
             // 
             // PasswordValidatorForm
             // 
@@ -531,6 +564,7 @@ namespace Easy_Password_Validator_GUI
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepeat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUnique)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLength)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEntropy)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -572,6 +606,8 @@ namespace Easy_Password_Validator_GUI
         private System.Windows.Forms.RadioButton radioButtonUppercaseY;
         private System.Windows.Forms.RadioButton radioButtonPunctuationN;
         private System.Windows.Forms.RadioButton radioButtonPunctuationY;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown numericUpDownEntropy;
     }
 }
 

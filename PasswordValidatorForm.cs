@@ -17,7 +17,8 @@ namespace Easy_Password_Validator_GUI
             // Create default settings object
             requirements = new PasswordRequirements()
             {
-                MinScore = 100
+                MinScore = 100,
+                UseEntropy = true
             };
 
             // Assign values to form
@@ -26,6 +27,7 @@ namespace Easy_Password_Validator_GUI
             numericUpDownRepeat.Value = requirements.MaxRepeatSameCharacter;
             numericUpDownNeighboring.Value = requirements.MaxNeighboringCharacter;
             numericUpDownScore.Value = requirements.MinScore;
+            numericUpDownEntropy.Value = (decimal)requirements.MinEntropy;
 
             if (requirements.RequireDigit)
                 radioButtonDigitsY.Checked = true;
@@ -181,6 +183,13 @@ namespace Easy_Password_Validator_GUI
         private void RadioButtonPunctuationN_CheckedChanged(object sender, EventArgs e)
         {
             requirements.RequirePunctuation = radioButtonPunctuationY.Checked;
+
+            UpdateScore();
+        }
+
+        private void NumericUpDownEntropy_ValueChanged(object sender, EventArgs e)
+        {
+            requirements.MinEntropy = (float)numericUpDownEntropy.Value;
 
             UpdateScore();
         }
