@@ -1,0 +1,3 @@
+[submodule "Easy-Password-Validator"]
+	path = Easy-Password-Validator
+	url = git@github.com:thirstyape/Easy-Password-Validator.git
